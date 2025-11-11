@@ -1,9 +1,3 @@
-/*
- * PROJETO: Guardião de Ergonomia e Foco (v2 - com LED Amarelo)
- * DESCRIÇÃO: Monitora a postura com sensor de distância (3 estados)
- * e gerencia ciclos de Pomodoro, integrado via MQTT.
- */
-
 // --- Bibliotecas
 #include <WiFi.h>
 #include <PubSubClient.h>
@@ -16,7 +10,7 @@ const char* SSID = "Wokwi-GUEST";
 const char* PASSWORD = "";
 
 // --- Configurações do MQTT 
-const char* BROKER_MQTT = "broker.hivemq.com"; // Usando um broker público
+const char* BROKER_MQTT = "54.172.140.81"; 
 const int BROKER_PORT = 1883;
 
 const char* ID_MQTT = "esp32_ergonomia_01";
@@ -51,7 +45,7 @@ bool timerAtivo = false;
 
 // --- Variáveis de Temporização (Pomodoro)
 unsigned long tempoInicioCiclo = 0;
-// (Para testes, use valores curtos)
+// (Para testes usamos valores curtos)
 const long DURACAO_FOCO_MS = 10000; // 10 segundos
 const long DURACAO_PAUSA_MS = 5000; // 5 segundos
 
@@ -65,7 +59,7 @@ void initPins() {
   pinMode(TRIG_PIN, OUTPUT);
   pinMode(ECHO_PIN, INPUT);
   pinMode(LED_VERDE_PIN, OUTPUT);
-  pinMode(LED_AMARELO_PIN, OUTPUT); // NOVO
+  pinMode(LED_AMARELO_PIN, OUTPUT); 
   pinMode(LED_VERMELHO_PIN, OUTPUT);
   pinMode(BUZZER_PIN, OUTPUT);
 }
@@ -125,7 +119,6 @@ void checarPostura() {
   distanciaAtual = lerSensorDistancia();
   String estadoAnterior = estadoPostura;
 
-  // LÓGICA CORRIGIDA (Mais Robusta)
   
   if (distanciaAtual <= LIMITE_POSTURA_ALERTA_CM && distanciaAtual > 0) {
     // 1. ALERTA (Ex: 1-30 cm)

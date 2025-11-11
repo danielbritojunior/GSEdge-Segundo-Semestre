@@ -1,16 +1,10 @@
-"""
-PROJETO: Guardião de Ergonomia e Foco (v3 - Dashboard/Site Completo)
-DESCRIÇÃO: Versão com um portal web informativo que explica
-           o que fazer em cada situação de ergonomia e produtividade.
-"""
-
 from flask import Flask, render_template_string
 from flask_socketio import SocketIO
 import paho.mqtt.client as mqtt
 import json
 
 # --- Configurações do MQTT 
-MQTT_BROKER    = "broker.hivemq.com" 
+MQTT_BROKER    = "54.172.140.81" 
 MQTT_PORT      = 1883
 MQTT_KEEPALIVE = 60
 MQTT_TOPIC_DADOS = "fiap/gs/ergonomia/attrs"
@@ -28,7 +22,6 @@ ultimo_estado = {
 }
 
 # ================== Lógica MQTT ==================
-# (Nenhuma mudança aqui)
 def on_connect(client, userdata, flags, rc):
     print(f"[MQTT] Conectado ao Broker '{MQTT_BROKER}' com resultado: {rc}")
     client.subscribe(MQTT_TOPIC_DADOS)
@@ -60,7 +53,7 @@ client.loop_start()
 
 @app.route("/")
 def index():
-    # O HTML abaixo foi completamente reestruturado
+    # Estrutura do front-end
     return render_template_string("""
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -116,7 +109,7 @@ def index():
             padding-bottom: 10px;
         }
         
-        /* --- Grid do Dashboard (O que já tínhamos) --- */
+        /* --- Grid do Dashboard --- */
         .dashboard-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -161,7 +154,7 @@ def index():
         .btn-reset { background-color: var(--color-alerta); color: white; }
         .btn-reset:hover { background-color: #a71d2a; }
         
-        /* --- NOVA SEÇÃO: Guia de Bem-Estar --- */
+        /* Guia de Bem-Estar --- */
         .info-guide {
             background-color: var(--color-card);
             padding: 25px; border-radius: 12px;
@@ -320,7 +313,6 @@ def index():
     """)
 
 # ================== Eventos SocketIO ==================
-# (Nenhuma mudança aqui)
 @socketio.on('connect')
 def handle_connect():
     print("[SocketIO] Novo cliente conectado.")

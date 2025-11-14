@@ -31,7 +31,6 @@ A solução é composta por duas partes principais:
 ## 🔗 Links e Demonstração
 
 * **Link do Wokwi:** [CLIQUE AQUI PARA ACESSAR A SIMULAÇÃO](https://wokwi.com/projects/447283123261239297)
-* **Link do Vídeo Explicativo:** [CLIQUE AQUI PARA VER O VÍDEO](COLOQUE-SEU-LINK-DO-YOUTUBE/DRIVE-AQUI)
 
 ### 📸 Screenshots
 
@@ -48,7 +47,7 @@ A solução é composta por duas partes principais:
 
 Este projeto utiliza uma arquitetura Cliente-Servidor baseada no protocolo MQTT para comunicação em tempo real.
 
-* **Broker MQTT Utilizado:** `54.172.140.81` (IP do Servidor do Professor)
+* **Broker MQTT Utilizado:** `44.223.43.74` (IP do Servidor do Professor)
 
 ### 1. Tópico de Publicação (ESP32 -> Dashboard)
 O ESP32 envia dados dos sensores para o servidor.

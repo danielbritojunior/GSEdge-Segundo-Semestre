@@ -4,7 +4,7 @@ import paho.mqtt.client as mqtt
 import json
 
 # --- Configurações do MQTT 
-MQTT_BROKER    = "54.172.140.81" 
+MQTT_BROKER    = "44.223.43.74" 
 MQTT_PORT      = 1883
 MQTT_KEEPALIVE = 60
 MQTT_TOPIC_DADOS = "fiap/gs/ergonomia/attrs"

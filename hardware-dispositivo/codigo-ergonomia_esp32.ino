@@ -10,7 +10,7 @@ const char* SSID = "Wokwi-GUEST";
 const char* PASSWORD = "";
 
 // --- Configurações do MQTT 
-const char* BROKER_MQTT = "54.172.140.81"; 
+const char* BROKER_MQTT = "44.223.43.74"; 
 const int BROKER_PORT = 1883;
 
 const char* ID_MQTT = "esp32_ergonomia_01";
